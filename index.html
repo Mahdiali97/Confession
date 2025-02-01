@@ -51,6 +51,7 @@
 
     <script>
         const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
 
         // Function to generate random position within the viewport
         function getRandomPosition() {
@@ -63,7 +64,7 @@
             return { x: randomX, y: randomY };
         }
 
-        // Add event listeners for hover and click
+        // Add event listeners for hover and click on "NO" button
         noButton.addEventListener('mouseenter', () => {
             const newPosition = getRandomPosition();
             noButton.style.position = 'absolute';
@@ -77,6 +78,11 @@
             noButton.style.position = 'absolute';
             noButton.style.left = `${newPosition.x}px`;
             noButton.style.top = `${newPosition.y}px`;
+        });
+
+        // Redirect to confession.html when "YES" button is clicked
+        yesButton.addEventListener('click', () => {
+            window.location.href = 'confession.html';
         });
     </script>
 </body>
