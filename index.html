@@ -4,14 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Confession</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .confession {
+            margin-top: 20%;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #noButton:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <div class="confession">
         <p>Can you lend your time a second?</p>
-        <form action="confession.html" method="get">
-            <button type="submit">Next</button>
-        </form>
+        <button id="yesButton">YES</button>
+        <button id="noButton">NO</button>
     </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+
+        // Function to generate random position within the viewport
+        function getRandomPosition() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const randomX = Math.random() * (windowWidth - 100); // Subtract button width
+            const randomY = Math.random() * (windowHeight - 50); // Subtract button height
+
+            return { x: randomX, y: randomY };
+        }
+
+        // Add event listeners for hover and click
+        noButton.addEventListener('mouseenter', () => {
+            const newPosition = getRandomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newPosition.x}px`;
+            noButton.style.top = `${newPosition.y}px`;
+        });
+
+        noButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default button behavior
+            const newPosition = getRandomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newPosition.x}px`;
+            noButton.style.top = `${newPosition.y}px`;
+        });
+    </script>
 </body>
 </html>
