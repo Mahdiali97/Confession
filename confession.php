@@ -13,7 +13,7 @@
         <p>Every day, my feelings for you grow stronger.</p>
         <p>I can't keep it to myself any longer...</p>
         <p><strong>I love you!</strong></p>
-        <form action="index.php" method="get">
+        <form action="index.html" method="get">
             <button type="submit">Back</button>
         </form>
     </div>
