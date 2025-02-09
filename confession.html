@@ -13,23 +13,9 @@
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
             height: 100vh;
             display: flex;
-            flex-direction: column; /* Stack elements vertically */
             justify-content: center;
             align-items: center;
             overflow: hidden;
-        }
-
-        .gifs-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px; /* Space between GIFs and confession box */
-        }
-
-        .gifs-container img {
-            width: 150px; /* Adjust size as needed */
-            height: auto;
-            margin: 0 10px; /* Add spacing between GIFs */
         }
 
         .confession {
@@ -57,6 +43,7 @@
         .confession h1 {
             font-size: 32px;
             color: #333;
+            margin-top: 10px; /* Add spacing between GIF and title */
             margin-bottom: 20px;
         }
 
@@ -77,18 +64,34 @@
             background-color: #c0392b;
             transform: scale(1.1);
         }
+
+        .gif-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        /* Custom Styling for the GIF */
+        .tenor-gif-embed {
+            margin-bottom: 15px; /* Space between GIF and title */
+            margin-right: center;
+        }
     </style>
 </head>
 <body>
-    <!-- GIFs Container -->
-    <div class="gifs-container">
-        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Cute GIF">
-        <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Cute GIF">
-    </div>
-
-    <!-- Confession Box -->
     <div class="confession">
+       <div class="gif-container"> 
+        <div class="tenor-gif-embed" data-postid="25346589" data-share-method="host" data-aspect-ratio="1" data-width="50%">
+        <a href="https://tenor.com/view/cute-gif-25346589">Cute GIF</a> from 
+        <a href="https://tenor.com/search/cute-gifs">Cute GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div> <!-- Tenor GIF Embed (Resized to be smaller) -->
+        
+        <!-- Title -->
         <h1>A Heartfelt Confession</h1>
+
+        <!-- Content -->
         <p>From the moment our paths crossed, something inside me changed.</p>
         <p>Your smile lights up my world, and your presence fills my heart with joy.</p>
         <p>I find myself thinking about you every day, wondering how I got so lucky to meet someone like you.</p>
