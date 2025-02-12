@@ -1,1 +1,143 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Accept Me?</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .confession {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+        .confession p {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+        }
+        #yesButton:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        #noButton:hover {
+            background-color: #e53935;
+            transform: scale(1.1);
+        }
+        /* Animation for NO button movement */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        #noButton.moving {
+            animation: shake 0.3s ease-in-out;
+        }
+        /* GIF Styling */
+        .gif-container {
+            margin-bottom: 20px;
+        }
+        .tenor-gif-embed {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="confession">
+        <!-- GIF -->
+        <div class="gif-container">
+            <div class="tenor-gif-embed" data-postid="25346589" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+                <a href="https://tenor.com/view/cute-gif-25346589">Cute GIF</a> from 
+                <a href="https://tenor.com/search/cute-gifs">Cute GIFs</a>
+            </div>
+            <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <!-- Question -->
+        <p>Will you accept me in your life?</p>
+
+        <!-- Buttons -->
+        <button id="yesButton">YES</button>
+        <button id="noButton">NO</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+
+        // Function to generate random position within the viewport
+        function getRandomPosition() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const randomX = Math.random() * (windowWidth - 150); // Subtract button width
+            const randomY = Math.random() * (windowHeight - 100); // Subtract button height
+            return { x: randomX, y: randomY };
+        }
+
+        // Add event listeners for hover and click on "NO" button
+        noButton.addEventListener('mouseenter', () => {
+            const newPosition = getRandomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newPosition.x}px`;
+            noButton.style.top = `${newPosition.y}px`;
+            // Add shake animation
+            noButton.classList.add('moving');
+            setTimeout(() => noButton.classList.remove('moving'), 300);
+        });
+
+        noButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default button behavior
+            const newPosition = getRandomPosition();
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${newPosition.x}px`;
+            noButton.style.top = `${newPosition.y}px`;
+            // Add shake animation
+            noButton.classList.add('moving');
+            setTimeout(() => noButton.classList.remove('moving'), 300);
+        });
+
+        // Redirect to a positive response page when "YES" button is clicked
+        yesButton.addEventListener('click', () => {
+            alert("Thank you for accepting me! ❤️");
+            window.location.href = 'positive-response.html'; // Replace with your desired page
+        });
+    </script>
+</body>
+  </html>
