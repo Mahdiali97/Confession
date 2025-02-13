@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You!</title>
     <style>
+        /* General Styling */
         body {
             font-family: 'Arial', sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
@@ -15,41 +15,82 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
+
+        /* Container Styling */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Soft white background */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Heading Styling */
         h1 {
             font-size: 32px;
-            color: #333;
+            color: #e74c3c; /* Softer red for emphasis */
+            margin-bottom: 20px;
         }
+
+        /* Paragraph Styling */
         p {
-            font-size: 24px;
-            color: #e74c3c;
+            font-size: 20px;
+            color: #333; /* Dark gray for readability */
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
+
+        /* GIF Styling */
         .gif-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+            margin-bottom: 20px;
         }
+
         .tenor-gif-embed {
-            margin-bottom: 20px; /* Space between GIF and text */
+            width: 80%; /* Slightly smaller GIF for balance */
+            margin: 0 auto; /* Center the GIF */
+        }
+
+        /* Button Styling (Optional) */
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #e74c3c;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
-    <div class="confession">
+    <!-- Main Container -->
+    <div class="container">
+        <!-- GIF Section -->
         <div class="gif-container">
-        <!-- Tenor GIF Embed -->
             <div class="tenor-gif-embed" data-postid="19555995" data-share-method="host" data-aspect-ratio="1.24031" data-width="100%">
                 <a href="https://tenor.com/view/cat-cute-hug-huggies-kozumexzumire-gif-19555995">Mochi Mochi Cat GIF</a> from 
                 <a href="https://tenor.com/search/cat-gifs">Mochi GIFs</a>
             </div> 
             <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-            <div>
-                <h1>Thank You for Accepting Me Nawa! ❤️</h1>
-                <p>Yeayyyyy....Now it's official</p>
-                <p>So can I call you mine now?</p>
-            </div>
         </div>
+
+        <!-- Text Section -->
+        <h1>Thank You for Accepting Me, Nawa! ❤️</h1>
+        <p>Yeayyyyy... Now it's official!</p>
+        <p>So, can I call you mine now?</p>
+
+        <!-- Optional Button -->
+        <button onclick="alert('I\'m so happy! ❤️')">Yes, You Can!</button>
     </div>
 </body>
 </html>
