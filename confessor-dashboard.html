@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confessor Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .dashboard {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+        .status {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .waiting {
+            background-color: #ffeaa7;
+            color: #2d3436;
+        }
+        .accepted {
+            background-color: #55a3ff;
+            color: white;
+        }
+        .rejected {
+            background-color: #ff7675;
+            color: white;
+        }
+        .response-time {
+            font-size: 14px;
+            color: #636e72;
+            margin-top: 10px;
+        }
+        button {
+            padding: 12px 30px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #6c5ce7;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #5f3dc4;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>💕 Confession Dashboard</h1>
+        <p>Track your confession status here!</p>
+        
+        <div id="statusDisplay" class="status waiting">
+            ⏳ Waiting for response...
+        </div>
+        
+        <div class="response-time">
+            <p id="timeDisplay">Confession sent: <span id="sentTime"></span></p>
+        </div>
+        
+        <button onclick="checkStatus()">🔄 Refresh Status</button>
+        <button onclick="window.location.href='maze-confession.html'">🎮 Start New Game</button>
+    </div>
+
+    <script>
+        // Simulate checking response status
+        function checkStatus() {
+            const responses = localStorage.getItem('confessionResponse');
+            const statusDiv = document.getElementById('statusDisplay');
+            
+            if (responses === 'accepted') {
+                statusDiv.className = 'status accepted';
+                statusDiv.innerHTML = '💕 She said YES! You two are meant to be!';
+            } else if (responses === 'rejected') {
+                statusDiv.className = 'status rejected';
+                statusDiv.innerHTML = '💔 She said no... but don\'t give up!';
+            } else {
+                statusDiv.className = 'status waiting';
+                statusDiv.innerHTML = '⏳ Still waiting for her response...';
+            }
+        }
+        
+        // Set confession time
+        document.getElementById('sentTime').textContent = new Date().toLocaleString();
+        
+        // Auto-check status every 5 seconds
+        setInterval(checkStatus, 5000);
+        checkStatus();
+    </script>
+</body>
+</html>

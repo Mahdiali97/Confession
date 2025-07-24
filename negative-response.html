@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -17,18 +17,61 @@
             color: white;
             text-align: center;
         }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
         h1 {
             font-size: 48px;
+            margin-bottom: 20px;
         }
         p {
             font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #2d3436;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: white;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>That's Disappointing...</h1>
-        <p>I hope we can still be friends. 😢</p>
+    <div class="container">
+        <h1>That's Okay... 😌</h1>
+        <p>Thank you for being honest with me.</p>
+        <p>I hope we can still be friends! 💙</p>
+        
+        <button onclick="stayFriends()">Let's Stay Friends 🤝</button>
+        <button onclick="giveSpace()">I Need Some Space 😔</button>
+        <button onclick="window.location.href='encouragement.html'">Send Encouragement 💪</button>
     </div>
+
+    <script>
+        function stayFriends() {
+            localStorage.setItem('confessionResponse', 'rejected-friends');
+            alert('Friendship is precious too! 💙');
+        }
+        
+        function giveSpace() {
+            localStorage.setItem('confessionResponse', 'rejected-space');
+            alert('Take all the time you need. 😌');
+        }
+        
+        // Automatically notify confessor of rejection
+        localStorage.setItem('confessionResponse', 'rejected');
+    </script>
 </body>
 </html>

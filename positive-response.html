@@ -64,11 +64,20 @@
             color: white;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin: 10px;
         }
 
         button:hover {
             background-color: #c0392b; /* Darker red on hover */
             transform: scale(1.1);
+        }
+
+        .special-button {
+            background-color: #00b894;
+        }
+
+        .special-button:hover {
+            background-color: #00a085;
         }
     </style>
 </head>
@@ -85,12 +94,30 @@
         </div>
 
         <!-- Text Section -->
-        <h1>Thank You for Accepting Me, Nawa! ❤️</h1>
+        <h1>Thank You for Accepting Me! ❤️</h1>
         <p>Yeayyyyy... Now it's official!</p>
         <p>So, can I call you mine now?</p>
 
-        <!-- Optional Button -->
-        <button onclick="alert('I\'m so happy! ❤️')">Yes, You Can!</button>
+        <!-- Response Buttons -->
+        <button onclick="respondYes()">Yes, You Can! 💕</button>
+        <button onclick="respondMaybe()">Maybe... 😊</button>
+        <button class="special-button" onclick="window.location.href='couple-activities.html'">Let's Plan Our Future! 🌟</button>
     </div>
+
+    <script>
+        function respondYes() {
+            localStorage.setItem('confessionResponse', 'accepted');
+            localStorage.setItem('relationshipStatus', 'official');
+            alert('Perfect! The confessor will be so happy! 💕');
+        }
+        
+        function respondMaybe() {
+            localStorage.setItem('confessionResponse', 'maybe');
+            alert('That\'s okay, take your time! 😊');
+        }
+        
+        // Automatically notify confessor of acceptance
+        localStorage.setItem('confessionResponse', 'accepted');
+    </script>
 </body>
 </html>
